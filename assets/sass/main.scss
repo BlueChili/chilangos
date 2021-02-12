@@ -1,0 +1,169 @@
+@import "normalize.scss";
+
+:root {
+  --primary-orange: #f15a24;
+}
+
+@font-face {
+  font-family: "Graffiti";
+  src: url("don-graffiti.regular.otf");
+}
+
+span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing: 0.1em; }
+
+.hr {
+  position: relative;
+}
+
+.hr-Logo {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  height: auto;
+  position: relative;
+}
+
+.hr-Triangles_mobile {
+  margin-top: 1em;
+  width: 100%;
+  @media (min-width: 1025px) {
+    display: none; visibility: hidden; opacity: 0;
+  }
+}
+
+.hr-ContactWrapper {
+  width: 100%;
+  background: rgb(241,90,36);
+  background: linear-gradient(90deg, rgba(241,90,36,1) 0%, rgba(246,112,64,1) 100%);
+  position: relative;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2em;
+  &::after {
+    position: absolute;
+    content: "";
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 4em;
+    background-image: url("/img/cenefa-mobile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.hr-ContactPhone {
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-size: 2.6em;
+  margin-bottom: 0.3em;
+}
+
+.hr-ContactTwitter_wrapper {
+  border: 1px solid white;
+  height: 2em;
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hr-Contact_twitterLogo {
+  max-height: 2em;
+  margin-right: 1em;
+}
+
+.hr-ContactTwitter_handle {
+  color: #242424;
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-right: 1em;
+  letter-spacing: 0.1em;
+}
+
+.hr-Menu {
+  background: linear-gradient(90deg, #26292B 0%, #151717 100%);
+  padding-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.hr-Tacos, .hr-Sodas{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.hr-TacosTitle, .hr-SodasTitle {
+  color: var(--primary-orange);
+  -webkit-text-stroke: 1px black;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+.hr-TacosItems_Wrapper, .hr-SodasItems_wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.hr-TacosItem, .hr-SodasItem {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0.1em;
+  font-size: 1.2em;
+  max-width: 8em;
+  text-align: center;
+}
+
+.pd {
+  width: 100vw;
+  background: linear-gradient(90deg, #26292B, #151717);
+}
+
+.pd-Container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 43%;
+  grid-template-areas: ". title"
+  "image description"
+  "image price";
+  grid-gap: 0.7em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+}
+
+.pd-ProductTitle {
+  color: var(--primary-orange);
+  grid-area: title;
+  margin: 0;
+  font-size: 1.7em;
+}
+
+.pd-ProductDescription {
+  color: white;
+  grid-area: description;
+  letter-spacing: 0.15em;
+  margin-bottom: 0;
+}
+
+.pd-ProductPrice {
+  color: white;
+  grid-area: price;
+  align-self: start;
+  justify-self: end;
+}
+
+.pd-ProductImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  grid-area: image;
+  object-fit: cover;
+}

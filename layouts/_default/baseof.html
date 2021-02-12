@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chilangos Taqueria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    {{ $styles := resources.Get "sass/main.scss" | resources.ToCSS (dict "targetPath" "main.css" "outputStyle" "compressed" "includePaths" (slice "node_modules/normalize.css"))| resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}">
+</head>
+<body>
+    {{ block "main" . }}
+    {{ end }}
+</body>
+</html>

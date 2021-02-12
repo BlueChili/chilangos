@@ -1,0 +1,55 @@
+{{ define "main" }}
+<div class="hr">
+    <img class="hr-Triangles_mobile" src="/img/triangles.png" alt="">
+    <img class="hr-Logo" src="/img/logo_white.png" alt="">
+    <div class="hr-ContactWrapper">
+        <span class="hr-ContactPhone">347-607-6205</span>
+        <div class="hr-ContactTwitter_wrapper">
+            <img class="hr-Contact_twitterLogo" src="/img/twitter.png" alt="">
+            <a href="twiter.com/chilangostaqueria" target="_blank" class="hr-ContactTwitter_handle">@chilangostaqueria</a>
+        </div>
+    </div>
+    <div class="hr-Menu">
+        <div class="hr-Tacos">
+            <h2 class="hr-TacosTitle">tacos</h2>
+            <a class="hr-TacosItem" href="#">al pastor</a>
+            <a class="hr-TacosItem" href="#">suadero</a>
+            <a class="hr-TacosItem" href="#">chorizo</a>
+            <a class="hr-TacosItem" href="#">tripa</a>
+            <a class="hr-TacosItem" href="#">carne asada</a>
+            <a class="hr-TacosItem" href="#">nopales</a>
+            <a class="hr-TacosItem" href="#">grill chicken</a>
+            <a class="hr-TacosItem" href="#">carnitas</a>
+            <a class="hr-TacosItem" href="#">cuerito</a>
+            <a class="hr-TacosItem" href="#">buche</a>
+            <a class="hr-TacosItem" href="#">oreja</a>
+            <a class="hr-TacosItem" href="#">mixta</a>
+            <a class="hr-TacosItem" href="#">masiza</a>
+        </div>
+        <div class="hr-Sodas">
+            <h2 class="hr-SodasTitle">Sodas</h2>
+            <div class="hr-SodasItems_wrapper">
+                <a class="hr-SodasItem" href="#">Jarritos</a>
+                <a class="hr-SodasItem" href="#">orange</a>
+                <a class="hr-SodasItem" href="#">tamarindo</a>
+                <a class="hr-SodasItem" href="#">fruit punch</a>
+                <a class="hr-SodasItem" href="#">toronja</a>
+                <a class="hr-SodasItem" href="#">agua</a>
+                <a class="hr-SodasItem" href="#">coca cola mexicana</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pd">
+    <div class="pd-List">
+        {{ range where .Site.RegularPages "Section" "tacos" }}
+        <section class="pd-Container">
+            <h3 class="pd-ProductTitle">{{ .Title }}</h3>
+            <img class="pd-ProductImage" src="{{ .Params.image }}" alt="{{ .Title }}">
+            <p class="pd-ProductDescription">{{ .Params.description }}</p>
+            <span class="pd-ProductPrice">${{ .Params.price }}</span>
+        </section>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
