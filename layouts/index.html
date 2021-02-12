@@ -8,6 +8,7 @@
             <img class="hr-Contact_twitterLogo" src="/img/twitter.png" alt="">
             <a href="twiter.com/chilangostaqueria" target="_blank" class="hr-ContactTwitter_handle">@chilangostaqueria</a>
         </div>
+        <img class="hr-ContactMap" src="/img/map.png" alt="">
     </div>
     <div class="hr-Menu">
         <div class="hr-Tacos">
@@ -29,13 +30,13 @@
         <div class="hr-Sodas">
             <h2 class="hr-SodasTitle">Sodas</h2>
             <div class="hr-SodasItems_wrapper">
-                <a class="hr-SodasItem" href="#">Jarritos</a>
+                <a class="hr-SodasItem" href="#">jarritos</a>
                 <a class="hr-SodasItem" href="#">orange</a>
                 <a class="hr-SodasItem" href="#">tamarindo</a>
                 <a class="hr-SodasItem" href="#">fruit punch</a>
-                <a class="hr-SodasItem" href="#">toronja</a>
-                <a class="hr-SodasItem" href="#">agua</a>
-                <a class="hr-SodasItem" href="#">coca cola mexicana</a>
+                <a class="hr-SodasItem" href="#">grapefruit</a>
+                <a class="hr-SodasItem" href="#">mexican coca cola</a>
+                <a class="hr-SodasItem" href="#">bottled water</a>
             </div>
         </div>
     </div>
@@ -46,6 +47,14 @@
         <section class="pd-Container">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
             <img class="pd-ProductImage" src="{{ .Params.image }}" alt="{{ .Title }}">
+            <p class="pd-ProductDescription">{{ .Params.description }}</p>
+            <span class="pd-ProductPrice">${{ .Params.price }}</span>
+        </section>
+        {{ end }}
+        {{ range where .Site.RegularPages "Section" "sodas" }}
+        <section class="pd-Container_Soda">
+            <h3 class="pd-ProductTitle">{{ .Title }}</h3>
+            <img class="pd-ProductImage_Soda" src="{{ .Params.image }}" alt="{{ .Title }}">
             <p class="pd-ProductDescription">{{ .Params.description }}</p>
             <span class="pd-ProductPrice">${{ .Params.price }}</span>
         </section>
