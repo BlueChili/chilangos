@@ -88,6 +88,8 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   padding-top: 2em;
   display: flex;
   justify-content: center;
+  padding-bottom: 100vw;
+  margin-bottom: -1px;
 }
 
 .hr-Tacos, .hr-Sodas{
@@ -130,13 +132,22 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
 .pd-Container {
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 43%;
+  grid-template-columns: 1fr 55%;
   grid-template-areas: ". title"
   "image description"
   "image price";
   grid-gap: 0.7em;
   padding: 0.5em;
-  margin-bottom: 2em;
+  padding-bottom: 8em;
+}
+
+.pd-List{
+  section:nth-child(2n) {
+    grid-template-columns: 55% 1fr;
+    grid-template-areas: "title ."
+    "description image"
+    "price image";
+  }
 }
 
 .pd-ProductTitle {
@@ -158,6 +169,7 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   grid-area: price;
   align-self: start;
   justify-self: end;
+  font-size: 1.5em;
 }
 
 .pd-ProductImage {
