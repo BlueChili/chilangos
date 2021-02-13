@@ -134,7 +134,7 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
 .pd {
   width: 100vw;
   background-image:  linear-gradient(90deg, #26292B, #151717);
-  padding-top: 30vw;
+  padding-top: 10vw;
 }
 
 .pd-Container, .pd-Container_Soda{
@@ -156,8 +156,8 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
 }
 
 .pd-List{
-  background: center top / 40% no-repeat url("/img/cardon-straight.png"), center top / 26px repeat-y  url("/img/triangles-black-vert.png");
-  padding-top: 70vw;
+  background: center top / 40% no-repeat url("/img/cardon-straight.png"), 83% 150px / 8% no-repeat url("/img/maraca-3.png"), 72% 160px no-repeat url("/img/maraca-2.png"), 22% 150px no-repeat url("/img/maraca-1.png"), center top / 26px repeat-y  url("/img/triangles-black-vert.png");
+  padding-top: 80vw;
   section:nth-child(2n) {
     grid-template-columns: 55% 1fr;
     grid-template-areas: "title ."
@@ -196,7 +196,7 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
 .pd-ProductImage, .pd-ProductImage_Soda{
   display: block;
   width: 100%;
-  height: 100%;
+  height: 66%;
   grid-area: image;
   object-fit: cover;
 }
