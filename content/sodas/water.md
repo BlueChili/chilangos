@@ -1,6 +1,6 @@
 ---
 title: bottled water
-image: /img/tamarindo.png
+image: /img/bottled-water.png
 description: bottled water
 price: 1.00
 ---
