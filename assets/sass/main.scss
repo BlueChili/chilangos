@@ -13,6 +13,16 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
 
 .hr {
   position: relative;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas: "logo contact"
+    "menu menu";
+  }
+  @media (min-width: 1200px){
+    width: 100vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "logo contact menu";
+  }
 }
 
 .hr-Logo {
@@ -21,11 +31,16 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   margin: 0 auto;
   height: auto;
   position: relative;
+  grid-area: logo;
+  align-self: center;
 }
 
 .hr-Triangles_mobile {
-  margin-top: 1em;
+  grid-area:logo;
   width: 100%;
+  @media (min-width: 768px) {
+    margin-top: 4.5em;
+  }
   @media (min-width: 1025px) {
     display: none; visibility: hidden; opacity: 0;
   }
@@ -51,6 +66,12 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
     background-image: url("/img/cenefa-mobile.png");
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  @media (min-width: 768px) {
+    grid-area: contact;
+  }
+  @media (min-width: 1200px){
+    justify-content:center;
   }
 }
 
@@ -97,6 +118,13 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   display: flex;
   justify-content: center;
   margin-bottom: -1px;
+  @media (min-width: 768px) {
+    grid-area: menu;
+    justify-content: center;
+  }
+  @media (min-width: 1200px){
+    padding-bottom: 3em;
+  }
 }
 
 .hr-Tacos, .hr-Sodas{
@@ -104,13 +132,28 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   flex-direction: column;
   align-items: center;
   flex-basis: 50%;
+  @media (min-width: 768px) {
+    flex-basis: 12em;
+  }
+  @media (min-width: 1200px) {
+    flex-basis: 14em;
+  }
 }
+
 
 .hr-TacosTitle, .hr-SodasTitle {
   color: var(--primary-orange);
   -webkit-text-stroke: 1px black;
   font-size: 2em;
   padding-bottom: 0.5em;
+  @media (min-width: 768px) {
+    font-size: 2.5em;
+  }
+  @media (min-width: 1200px) {
+    font-size: 3.5em;
+    margin-bottom: 0;
+    padding-bottom: 0.3em;
+  }
 }
 
 .hr-TacosItems_Wrapper, .hr-SodasItems_wrapper{
@@ -129,12 +172,59 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   font-size: 1.2em;
   max-width: 8em;
   text-align: center;
+  @media (min-width: 768px) {
+    max-width: 12em;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.7em;
+  }
 }
 
 .pd {
   width: 100vw;
   background-image:  linear-gradient(90deg, #26292B, #151717);
   padding-top: 10vw;
+  @media (min-width: 1200px) {
+  }
+}
+
+.pd-List{
+  background: center top / 40% no-repeat url("/img/cardon-straight.png"), 83% 150px / 8% no-repeat url("/img/maraca-3.png"), 72% 160px no-repeat url("/img/maraca-2.png"), 22% 150px no-repeat url("/img/maraca-1.png"), center top / 26px repeat-y  url("/img/triangles-black-vert.png");
+  padding-top: 45vw;
+  section:nth-child(2n) {
+    grid-template-columns: 55% 1fr;
+    grid-template-areas: "title ."
+    "description image"
+    "price image";
+  }
+  .pd-Container_Soda:nth-child(2n) {
+    grid-template-areas: "title image"
+    "description image"
+    "price image";
+  }
+  @media (min-width: 768px) {
+    background: center top / 20% no-repeat url("/img/cardon-straight.png"), 83% 150px / 8% no-repeat url("/img/maraca-3.png"), 72% 160px no-repeat url("/img/maraca-2.png"), 22% 150px no-repeat url("/img/maraca-1.png"), center top / 26px repeat-y  url("/img/triangles-black-vert.png");
+    padding: 45vw 2em 0;
+    max-width: 1000px;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 27em;
+    margin: 0 auto;
+    section:nth-child(2n) {
+      grid-template-columns: 35% 1fr;
+      grid-template-areas: "title ."
+      "description image"
+      "price image";
+    }
+    .pd-Container_Soda:nth-child(2n) {
+      grid-template-areas: "title image"
+      "description image"
+      "price image";
+      img {
+        justify-self: start;
+      }
+    }
+  }
 }
 
 .pd-Container, .pd-Container_Soda{
@@ -147,6 +237,13 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   grid-gap: 0.7em;
   padding: 0.5em;
   padding-bottom: 8em;
+  @media (min-width: 768px) {
+    grid-gap: 1em 2em;
+    grid-template-rows: auto auto 1fr;
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 35%;
+  }
 }
 
 .pd-Container_Soda {
@@ -155,27 +252,17 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   "image price";
 }
 
-.pd-List{
-  background: center top / 40% no-repeat url("/img/cardon-straight.png"), 83% 150px / 8% no-repeat url("/img/maraca-3.png"), 72% 160px no-repeat url("/img/maraca-2.png"), 22% 150px no-repeat url("/img/maraca-1.png"), center top / 26px repeat-y  url("/img/triangles-black-vert.png");
-  padding-top: 80vw;
-  section:nth-child(2n) {
-    grid-template-columns: 55% 1fr;
-    grid-template-areas: "title ."
-    "description image"
-    "price image";
-  }
-  .pd-Container_Soda:nth-child(2n) {
-    grid-template-areas: "title image"
-    "description image"
-    "price image";
-  }
-}
-
 .pd-ProductTitle {
   color: var(--primary-orange);
   grid-area: title;
   margin: 0;
   font-size: 1.7em;
+  @media (min-width: 768px) {
+    font-size: 2.5em;
+  }
+  @media (min-width: 1200px){
+    font-size: 3.5em;
+  }
 }
 
 .pd-ProductDescription {
@@ -183,6 +270,9 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   grid-area: description;
   letter-spacing: 0.15em;
   margin-bottom: 0;
+  @media (min-width: 1200px){
+    font-size: 1.4em;
+  }
 }
 
 .pd-ProductPrice {
@@ -199,8 +289,21 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   height: 80%;
   grid-area: image;
   object-fit: cover;
+  @media (min-width: 768px) {
+    width: #{"min(50vw, 100%)"};
+    height: #{"max(30vw, 100%)"};
+  }
+  @media (min-width: 1200px) {
+    width: 500px;
+    height: 410px;
+    justify-self: center;
+  }
 }
 
 .pd-ProductImage_Soda {
   object-fit: contain;
+  @media (min-width: 1200px){
+    justify-self: end;
+    width: 230px;
+  }
 }
