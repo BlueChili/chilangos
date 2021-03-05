@@ -20,19 +20,54 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   }
   @media (min-width: 1200px){
     width: 100vw;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "logo contact menu"
-    "bio bio bio";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "logo logo logo logo contact contact contact contact menu menu menu menu"
+    "bio bio bio bio bio bio slider slider slider slider slider slider";
   }
+}
+
+.hr-SliderWrapper {
+  grid-area: slider;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.hr-Slider {
+  display: flex;
+  width: 100%;
+  height: 70vw;
+  @media (min-width: 1200px) {
+    height: 30vw;
+  }
+}
+
+.sl-Slider_Controls {
+  opacity: 0;
+}
+
+.sl-slide {
+  height: 100%;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.sl-slideImage {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  object-position: top center;
 }
 
 .hr-Bio{
   grid-area: bio;
-  width: 100vw;
   background-image:  linear-gradient(90deg, #26292B, #151717);
   padding-top: 4em;
   margin-bottom: -2px;
   p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    letter-spacing: initial;
+    font-weight: 300;
     font-size: 1.5em;
     color: white;
     max-width: 24em;
@@ -41,8 +76,8 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
     padding-bottom: 1.5em;
   }
   p:last-child {
-  -webkit-text-stroke: 1px black;
     font-size: 2em;
+    font-weight: 600;
     color: var(--primary-orange);
   }
 }
