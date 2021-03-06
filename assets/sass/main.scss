@@ -2,6 +2,8 @@
 
 :root {
   --primary-orange: #f15a24;
+  --slider-height: 0;
+  --slider-width: 0;
 }
 
 @font-face {
@@ -37,26 +39,31 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   display: flex;
   width: 100%;
   height: 70vw;
+  transition: transform 0.4s;
   @media (min-width: 1200px) {
-    height: 30vw;
+    height: var(--slider-height);
+    width: var(--slider-width);
   }
 }
 
 .sl-Slider_Controls {
   opacity: 0;
+  position: absolute;
 }
 
 .sl-slide {
-  height: 100%;
-  width: 100%;
+  height: var(--slider-height);
+  width: var(--slider-width);
   flex-shrink: 0;
+  background-image:  linear-gradient(90deg, #26292B, #151717);
 }
 
 .sl-slideImage {
-  height: auto;
   width: 100%;
+  height: var(--slider-height);
+  display: block;
   object-fit: contain;
-  object-position: top center;
+  object-position: center;
 }
 
 .hr-Bio{
