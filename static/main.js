@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let sliderTicker = window.setInterval(function() {
     if (!!document.querySelector('[aria-current="true"]').nextElementSibling) document.querySelector('[aria-current="true"]').nextElementSibling.click()
     else { sliderControls[0].click() }
-  }, 5000)
+  }, 3300)
 
   // sliderTicker;
   }
