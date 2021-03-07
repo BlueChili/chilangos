@@ -42,7 +42,7 @@
     </div>
     <div class="hr-Bio">
         <p>Chilango's taqueria is born out of its CEO's nickname Luis Santos, being born in Mexico City and raised in the family business learning alongside his uncle whose been in the business for over 40 years.</p>
-        <p>Luis came to America in the 90's and thanks to his skills he became of a chain of 4 restaurants called Boxer's, then he moved on to Heartland Brewery where his work rose him to be the executive chef of a chain of 12 restaurants, working for the company for over 20 years.</p>
+        <p>Luis came to America in the 90's and thanks to his skills he became part of a chain of 4 restaurants called Boxer's, then he moved on to Heartland Brewery where his work rose him to be the executive chef of a chain of 12 restaurants, working for the company for over 20 years.</p>
         <p>After all those years working  as executive chef he's joined his family for a new journey, Chilango's Taqueria!</p>
         <p>Authentic Mexican Tacos!!!</p>
     </div>
@@ -77,7 +77,7 @@
         {{ range where .Site.RegularPages "Section" "tacos" }}
         <section class="pd-Container">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
-            <img class="pd-ProductImage" src="{{ .Params.image }}" alt="{{ .Title }}">
+            <img class="pd-ProductImage lazyload" data-src="{{ .Params.image }}" alt="{{ .Title }}">
             <p class="pd-ProductDescription">{{ .Params.description }}</p>
             <span class="pd-ProductPrice">${{ .Params.price }}</span>
         </section>
@@ -85,7 +85,7 @@
         {{ range where .Site.RegularPages "Section" "sodas" }}
         <section class="pd-Container_Soda">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
-            <img class="pd-ProductImage_Soda" src="{{ .Params.image }}" alt="{{ .Title }}">
+            <img class="pd-ProductImage_Soda lazyload" data-src="{{ .Params.image }}" alt="{{ .Title }}">
             <p class="pd-ProductDescription">{{ .Params.description }}</p>
             <span class="pd-ProductPrice">${{ .Params.price }}</span>
         </section>
