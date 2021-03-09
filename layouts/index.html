@@ -13,30 +13,18 @@
     <div class="hr-Menu">
         <div class="hr-Tacos">
             <h2 class="hr-TacosTitle">tacos</h2>
-            <a class="hr-TacosItem" href="#">al pastor</a>
-            <a class="hr-TacosItem" href="#">suadero</a>
-            <a class="hr-TacosItem" href="#">chorizo</a>
-            <a class="hr-TacosItem" href="#">tripa</a>
-            <a class="hr-TacosItem" href="#">carne asada</a>
-            <a class="hr-TacosItem" href="#">nopales</a>
-            <a class="hr-TacosItem" href="#">grill chicken</a>
-            <a class="hr-TacosItem" href="#">carnitas</a>
-            <a class="hr-TacosItem" href="#">cuerito</a>
-            <a class="hr-TacosItem" href="#">buche</a>
-            <a class="hr-TacosItem" href="#">oreja</a>
-            <a class="hr-TacosItem" href="#">mixta</a>
-            <a class="hr-TacosItem" href="#">masiza</a>
+
+            {{ range where .Site.RegularPages "Section" "tacos" }}
+            <a class="hr-TacosItem" href="#" data-itemid="{{ path.Base .Permalink }}">{{ .Title }}</a>
+            {{ end }}
         </div>
         <div class="hr-Sodas">
             <h2 class="hr-SodasTitle">Sodas</h2>
             <div class="hr-SodasItems_wrapper">
                 <a class="hr-SodasItem" href="#">jarritos</a>
-                <a class="hr-SodasItem" href="#">tangerine</a>
-                <a class="hr-SodasItem" href="#">tamarindo</a>
-                <a class="hr-SodasItem" href="#">fruit punch</a>
-                <a class="hr-SodasItem" href="#">grapefruit</a>
-                <a class="hr-SodasItem" href="#">mexican coca cola</a>
-                <a class="hr-SodasItem" href="#">bottled water</a>
+                {{ range where .Site.RegularPages "Section" "sodas" }}
+                <a class="hr-SodasItem" href="#" data-itemid="{{ path.Base .Permalink }}">{{ .Title }}</a>
+                {{ end }}
             </div>
         </div>
     </div>
@@ -48,15 +36,15 @@
     </div>
     <section class="hr-SliderWrapper">
         <div class="hr-Slider">
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0153.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0154.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0155.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0157.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0172.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0174.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0191.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0927.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage" src="/uploads/IMG_0201.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0153.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0154.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0155.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0157.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0172.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0174.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0191.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0927.jpg" alt=""></div>
+            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0201.jpg" alt=""></div>
         </div>
         <div class="sl-Slider_Controls">
             <button class="sl-Slider_Control" type="button" data-index="0" aria-current="true"></button>
@@ -75,7 +63,7 @@
 <div class="pd">
     <div class="pd-List">
         {{ range where .Site.RegularPages "Section" "tacos" }}
-        <section class="pd-Container">
+        <section class="pd-Container" data-item="{{ path.Base .Permalink }}">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
             <img class="pd-ProductImage lazyload" data-src="{{ .Params.image }}" alt="{{ .Title }}">
             <p class="pd-ProductDescription">{{ .Params.description }}</p>
@@ -83,7 +71,7 @@
         </section>
         {{ end }}
         {{ range where .Site.RegularPages "Section" "sodas" }}
-        <section class="pd-Container_Soda">
+        <section class="pd-Container_Soda" data-item="{{ path.Base .Permalink }}">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
             <img class="pd-ProductImage_Soda lazyload" data-src="{{ .Params.image }}" alt="{{ .Title }}">
             <p class="pd-ProductDescription">{{ .Params.description }}</p>

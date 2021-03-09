@@ -1,11 +1,11 @@
 window.addEventListener("DOMContentLoaded", function () {
   const caroussel = document.querySelectorAll(".hr-Slider");
-  const sliderWidth = `${document.querySelector(".hr-SliderWrapper").getBoundingClientRect().width}px`;
-  document.documentElement.style.setProperty("--slider-width", sliderWidth)
-  const sliderHeight = `${document.querySelector(".hr-SliderWrapper").getBoundingClientRect().height}px`;
-  document.documentElement.style.setProperty("--slider-height", sliderHeight)
   if (caroussel.length) {
     console.log(sliderHeight, sliderWidth);
+  const sliderWidth = `${document.querySelector(".hr-SliderWrapper").getBoundingClientRect().width}px`;
+  const sliderHeight = `${document.querySelector(".hr-SliderWrapper").getBoundingClientRect().height}px`;
+  document.documentElement.style.setProperty("--slider-width", sliderWidth)
+  document.documentElement.style.setProperty("--slider-height", sliderHeight)
   const sliderControls = document.querySelectorAll(".sl-Slider_Control");
 
   caroussel.forEach(function(card) {
@@ -33,4 +33,19 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // sliderTicker;
   }
+
+let tacoList = document.querySelectorAll(".hr-TacosItem");
+let sodaList = document.querySelectorAll(".hr-SodasItem");
+
+const itemsList = Array.prototype.concat.call(...tacoList, ...sodaList);
+
+itemsList.forEach(function (link) {
+  link.addEventListener("click", function(event) {
+    event.preventDefault();
+    const target = document.querySelector(`[data-item="${event.target.dataset.itemid}"]`);
+    const yStart = target.getBoundingClientRect().y;
+    window.scrollBy({ left: 0, top: yStart, behavior: "smooth"});
+    console.log( target )
+  });
+});
 })
