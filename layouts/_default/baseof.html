@@ -10,6 +10,7 @@
     <script src="lazysizes.min.js"></script>
     {{ $ts := resources.Get "ts/main.ts" | babel (dict "minified" true) }}
     {{ $js := slice $ts | resources.Concat "main.js" | fingerprint }}
+    <script src="scrollreveal.js"></script>
     <script src="{{ $js.Permalink }}" type="application/javascript"></script>
 </head>
 <body>

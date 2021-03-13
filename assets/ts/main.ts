@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", function () {
   const caroussel = document.querySelectorAll(".hr-Slider");
   if (caroussel.length) {
@@ -48,4 +49,15 @@ itemsList.forEach(function (link) {
     console.log( target )
   });
 });
+
+ScrollReveal().reveal(
+  '.pd-ProductImage, .pd-ProductImage_Soda',
+  {
+    delay: 200,
+    distance: "150px",
+    origin: "bottom"
+  }
+);
+
 })
+
