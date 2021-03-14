@@ -1,3 +1,4 @@
+import ScrollReveal from 'scrollreveal';
 
 window.addEventListener("DOMContentLoaded", function () {
   const caroussel = document.querySelectorAll(".hr-Slider");

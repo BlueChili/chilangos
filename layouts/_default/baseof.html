@@ -8,10 +8,9 @@
     {{ $styles := resources.Get "sass/main.scss" | resources.ToCSS (dict "targetPath" "main.css" "outputStyle" "compressed")| resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $styles.Permalink }}">
     <script src="lazysizes.min.js"></script>
-    {{ $ts := resources.Get "ts/main.ts" | babel (dict "minified" true) }}
+    {{ $ts := resources.Get "ts/main.ts" | js.Build (dict "minify" "true")| babel (dict "minified" true "noComments" "false")}}
     {{ $js := slice $ts | resources.Concat "main.js" | fingerprint }}
-    <script src="scrollreveal.js"></script>
-    <script src="{{ $js.Permalink }}" type="application/javascript"></script>
+    <script type="application/javascript">{{ $js.Content | safeJS }}</script>
 </head>
 <body>
     {{ block "main" . }}
