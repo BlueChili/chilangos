@@ -176,7 +176,7 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   margin-bottom: 0.3em;
 }
 
-.hr-ContactTwitter_wrapper {
+.hr-ContactTwitter_wrapper, .hr-ContactFacebook_wrapper, .hr-ContactInstagram_wrapper{
   border: 1px solid white;
   height: 2em;
   width: auto;
@@ -185,12 +185,12 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   margin: 0 auto 2em;
 }
 
-.hr-Contact_twitterLogo {
+.hr-Contact_twitterLogo, .hr-Contact_facebookLogo, .hr-Contact_instagramLogo{
   max-height: 2em;
   margin-right: 1em;
 }
 
-.hr-ContactTwitter_handle {
+.hr-ContactTwitter_handle, .hr-ContactFacebook_handle, .hr-ContactInstagram_handle{
   color: #242424;
   font-size: 1.5em;
   text-decoration: none;
