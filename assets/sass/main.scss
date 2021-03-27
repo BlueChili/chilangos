@@ -166,6 +166,7 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   }
   @media (min-width: 1200px){
     justify-content:center;
+    padding-top: 3.5em;
   }
 }
 
@@ -183,6 +184,12 @@ span, h1, h2, h3, a, p { font-family: "Graffiti"; color: #242424; letter-spacing
   display: flex;
   align-items: center;
   margin: 0 auto 2em;
+}
+
+.hr-ContactTwitter_wrapper {
+  @media (min-width: 1200px) {
+    margin-bottom: 0.5em;
+  }
 }
 
 .hr-Contact_twitterLogo, .hr-Contact_facebookLogo, .hr-Contact_instagramLogo{
