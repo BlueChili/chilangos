@@ -3,19 +3,37 @@
     <img class="hr-Triangles_mobile" src="/img/triangles.png" alt="">
     <img class="hr-Logo" src="/img/logo_white.png" alt="">
     <div class="hr-ContactWrapper">
-        <span class="hr-ContactPhone">347-607-6205</span>
+        {{ with .Site.Data.contact.phone.number }}
+        <span class="hr-ContactPhone">
+            {{- range $index, $number := (split . "") -}}
+                {{ if eq $index 3 }}-{{- $number -}}
+                {{ else if eq $index 6 }}-{{- $number -}}
+                {{ else }}{{- $number -}}
+                {{ end }}
+            {{- end -}}
+        </span>
+        {{ end }}
         <div class="hr-ContactInstagram_wrapper">
+            {{ with .Site.Data.contact.instagram }}
             <img class="hr-Contact_instagramLogo" src="/img/instagram.png" alt="">
-            <a href="https://www.instagram.com/chilangostaqueriany/" target="_blank" class="hr-ContactInstagram_handle">@chilangostaqueriany</a>
-        </div><div class="hr-ContactFacebook_wrapper">
+            <a href="{{ .url }}" target="_blank" class="hr-ContactInstagram_handle">{{ .label }}</a>
+            {{ end }}
+        </div>
+        <div class="hr-ContactFacebook_wrapper">
+            {{ with .Site.Data.contact.facebook }}
             <img class="hr-Contact_facebookLogo" src="/img/facebook.png" alt="">
-            <a href="https://www.facebook.com/Chilangos-Taqueria-112064027590520" target="_blank" class="hr-ContactFacebook_handle">Chilango's Taqueria</a>
+            <a href="{{ .url }}" target="_blank" class="hr-ContactFacebook_handle">{{ .label }}</a>
+            {{ end }}
         </div>
         <div class="hr-ContactTwitter_wrapper">
+            {{ with .Site.Data.contact.twitter }}
             <img class="hr-Contact_twitterLogo" src="/img/twitter.png" alt="">
-            <a href="twiter.com/chilangostaqueria" target="_blank" class="hr-ContactTwitter_handle">@chilangostaqueria</a>
+            <a href="{{ .url }}" target="_blank" class="hr-ContactTwitter_handle">{{ .label }}</a>
+            {{ end }}
         </div>
-        <p style="font-size: 1.5em; text-align: center">102-18 Roosevelt Avenue<br>Corona, NY</p>
+        {{ with .Site.Data.contact.address }}
+        <p style="font-size: 1.5em; text-align: center">{{ .street }}<br>{{ .city }}</p>
+        {{ end }}
         <img class="hr-ContactMap" src="/img/map.png" alt="">
     </div>
     <div class="hr-Menu">
@@ -37,10 +55,7 @@
         </div>
     </div>
     <div class="hr-Bio">
-        <p>The name Chilango's taqueria comes from the nickname of it's founder Luis Santos, born in Mexico City and raised in the family business Luis learned alongside his uncle whose been making tacos for over 40 years.</p>
-        <p>Luis came to America in the 90's, thanks to his skills he worked for Boxer's a chain of 4 restaurants, then he moved on to Heartland Brewery where his work propped him up to be the executive chef helming Heartland's 12 locations, working with them for over 20 years.</p>
-        <p>After all that time working as executive chef Luis has joined his family for a new journey, Chilango's Taqueria!</p>
-        <p>Authentic Mexican Tacos!!!</p>
+        {{ .Site.Data.bio.bio | markdownify }}
     </div>
     <section class="hr-SliderWrapper">
         <div class="hr-Slider">

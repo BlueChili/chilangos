@@ -1,0 +1,77 @@
+backend:
+  name: git-gateway
+  repo: bluechili/chilangos
+  branch: master
+media_folder: "static/uploads"
+public_folder: "/uploads" # The src attribute for uploaded media will begin with /images/uploads
+collections:
+  - name: "config"
+    label: "Configuracion"
+    files:
+      - file: "data/bio.yml"
+        name: "bio"
+        label: "Biografia"
+        fields:
+          - { name: "bio", widget: "markdown", label: "Biografia" }
+      - file: "data/caroussel.yml"
+        name: "slider"
+        label: "Slider de imagenes"
+        fields:
+          - name: "images"
+            label: "Imagenes"
+            widget: "list"
+            fields:
+            - { name: "image", widget: "image", label: "Imagen" }
+      - file: "data/contact.yml"
+        name: "contacts"
+        label: "Contacto"
+        fields:
+          - name: "phone"
+            label: "Phone number"
+            widget: "object"
+            fields:
+            - { name: "number", widget: "number", label: "Use only numbers" }
+          - name: "address"
+            label: "Address"
+            widget: "object"
+            fields:
+            - { name: "street", widget: "string", label: "Street" }
+            - { name: "city", widget: "string", label: "City" }
+          - name: "instagram"
+            label: "Instagram"
+            widget: "object"
+            fields:
+            - { name: "url", widget: "string", label: "Instagram Link" }
+            - { name: "label", widget: "string", label: "Label" }
+          - name: "facebook"
+            label: "Facebook"
+            widget: "object"
+            fields:
+            - { name: "url", widget: "string", label: "Facebook Link" }
+            - { name: "label", widget: "string", label: "Label" }
+          - name: "twitter"
+            label: "Twitter"
+            widget: "object"
+            fields:
+            - { name: "url", widget: "string", label: "Twitter Link" }
+            - { name: "label", widget: "string", label: "Label" }
+  - name: "tacos"
+    label: "Tacos" # Used in the UI
+    folder: "content/tacos" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - {label: "Nombre", name: "title", widget: "string"}
+      - {label: "Descripcion", name: "description", widget: "string"}
+      - {label: "Precio", name: "price", widget: "string"}
+      - {label: "Orden", name: "order", widget: "number"}
+      - {label: "Imagen", name: "image", widget: "image"}
+  - name: "sodas"
+    label: "Sodas" # Used in the UI
+    folder: "content/sodas" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - {label: "Nombre", name: "title", widget: "string"}
+      - {label: "Descripcion", name: "description", widget: "string"}
+      - {label: "Precio", name: "price", widget: "string"}
+      - {label: "Orden", name: "order", widget: "number"}
+      - {label: "Imagen", name: "image", widget: "image"}
