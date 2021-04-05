@@ -40,7 +40,7 @@
         <div class="hr-Tacos">
             <h2 class="hr-TacosTitle">tacos</h2>
 
-            {{ range where .Site.RegularPages "Section" "tacos" }}
+            {{ range sort (where .Site.RegularPages "Section" "tacos") ".Params.order" "asc"}}
             <a class="hr-TacosItem" href="#" data-itemid="{{ path.Base .Permalink }}">{{ .Title }}</a>
             {{ end }}
         </div>
@@ -48,7 +48,7 @@
             <h2 class="hr-SodasTitle">Sodas</h2>
             <div class="hr-SodasItems_wrapper">
                 <a class="hr-SodasItem" href="#">jarritos</a>
-                {{ range where .Site.RegularPages "Section" "sodas" }}
+                {{ range sort (where .Site.RegularPages "Section" "sodas") ".Params.order" "asc"}}
                 <a class="hr-SodasItem" href="#" data-itemid="{{ path.Base .Permalink }}">{{ .Title }}</a>
                 {{ end }}
             </div>
@@ -59,33 +59,21 @@
     </div>
     <section class="hr-SliderWrapper">
         <div class="hr-Slider">
+            {{ range .Site.Data.caroussel.images }}
             <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0153.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0154.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0155.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0157.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0172.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0174.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0191.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0927.jpg" alt=""></div>
-            <div class="sl-slide"><img class="sl-slideImage lazyload" data-src="/uploads/IMG_0201.jpg" alt=""></div>
+            {{ end }}
         </div>
         <div class="sl-Slider_Controls">
-            <button class="sl-Slider_Control" type="button" data-index="0" aria-current="true"></button>
-            <button class="sl-Slider_Control" type="button" data-index="1"></button>
-            <button class="sl-Slider_Control" type="button" data-index="2"></button>
-            <button class="sl-Slider_Control" type="button" data-index="3"></button>
-            <button class="sl-Slider_Control" type="button" data-index="4"></button>
-            <button class="sl-Slider_Control" type="button" data-index="5"></button>
-            <button class="sl-Slider_Control" type="button" data-index="6"></button>
-            <button class="sl-Slider_Control" type="button" data-index="7"></button>
-            <button class="sl-Slider_Control" type="button" data-index="8"></button>
+            {{ range $i, $v := .Site.Data.caroussel.images }}
+            <button class="sl-Slider_Control" type="button" data-index="{{ $i }}" {{ if eq $i 0 }}aria-current="true"{{ end }}></button>
+            {{ end }}
         </div>
 
     </section>
 </div>
 <div class="pd">
     <div class="pd-List">
-        {{ range where .Site.RegularPages "Section" "tacos" }}
+        {{ range sort (where .Site.RegularPages "Section" "tacos") ".Params.order" "asc"}}
         <section class="pd-Container" data-item="{{ path.Base .Permalink }}">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
             <img class="pd-ProductImage lazyload" data-src="{{ .Params.image }}" alt="{{ .Title }}">
@@ -93,7 +81,7 @@
             <span class="pd-ProductPrice">${{ .Params.price }}</span>
         </section>
         {{ end }}
-        {{ range where .Site.RegularPages "Section" "sodas" }}
+        {{ range sort (where .Site.RegularPages "Section" "sodas") ".Params.order" "asc"}}
         <section class="pd-Container_Soda" data-item="{{ path.Base .Permalink }}">
             <h3 class="pd-ProductTitle">{{ .Title }}</h3>
             <img class="pd-ProductImage_Soda lazyload" data-src="{{ .Params.image }}" alt="{{ .Title }}">
@@ -103,15 +91,4 @@
         {{ end }}
     </div>
 </div>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
 {{ end }}
