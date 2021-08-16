@@ -2,4 +2,4 @@ baseURL = "https://chilangostaqueria.com/"
 languageCode = "en-us"
 title = "Chilango's Taqueria NYC"
 [context.production.environment]
-  HUGO_VERSION = "0.80.0"
+  HUGO_VERSION = 0.80.0
