@@ -1,5 +1,5 @@
 baseURL = "https://chilangostaqueria.com/"
 languageCode = "en-us"
 title = "Chilango's Taqueria NYC"
-[build]
+[build.environment]
   HUGO_VERSION = "0.80.0"
